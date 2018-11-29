@@ -22,8 +22,25 @@
                 <div class="description line-1"> AKS has been successfully setup</div>
                 <div class="description line-2"> {{language}} is Ready!</div>
                 <div class="next-steps-container">
-                    <div class="next-steps-header">Next up</div>
-                    <div class="next-steps-body">
+                    <div class="next-steps-header">Fetching SQL Data:</div>
+                    <table border="1">
+                    <tr>
+                        <th>Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        </tr>
+                    {% for item in data %}
+                    <tr>
+                        <td>{{item[0]}}</td>
+                        <td>{{item[1]}}</td>
+                        <td>{{item[2]}}</td>
+                        <td>{{item[3]}}</td>
+                        
+                    </tr>
+                    {% endfor %}
+                    </table>
+                    <!-- <div class="next-steps-body">
                         <div class="step">
                             <div class="step-icon">
                                 <img src="static/img/cloneWhite.svg">
@@ -48,7 +65,7 @@
                             </div>
                             <div class="step-text"><a href="https://go.microsoft.com/fwlink/?linkid=862126">Learn more about all you can do with Azure projects by visiting the documentation</a></div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

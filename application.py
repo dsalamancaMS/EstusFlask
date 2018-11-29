@@ -16,7 +16,7 @@ cursor = cnxn.cursor()
 @app.route("/")
 def estus_flask():
 
-    cursor.execute("SELECT TOP 10 FirstName, LastName, EmailAddress, Phone FROM SalesLT.Customer")
+    cursor.execute("SELECT TOP 5 FirstName, LastName, EmailAddress, Phone FROM SalesLT.Customer")
     data = cursor.fetchall()
 
     message = "Hello from " + os.getenv("DB_NAME")
