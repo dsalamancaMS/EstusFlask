@@ -16,7 +16,14 @@ spec:
     spec:
       containers:
       - name: pysql
-        image: dsalamanca.azurecr.io/python-sql:v1
+        image: dsalamanca.azurecr.io/python-sql:v2
+        resources:
+          requests:
+            memory: "100Mi"
+            cpu: "200m"
+          limits:
+            memory: "1024Mi"
+            cpu: "500m"
         ports:
         - containerPort: 8080
         env:
