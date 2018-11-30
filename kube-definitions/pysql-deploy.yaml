@@ -42,7 +42,6 @@ spec:
                 key: dbpass
       imagePullSecrets:
       - name: regcred
-      restartPolicy: Never
 
 ---
 
