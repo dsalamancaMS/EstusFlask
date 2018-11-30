@@ -21,13 +21,14 @@
             overflow-x: hidden;
             font-family: "Segoe UI";
         }
-
+        
         .cloud-image {
             width: 1200px;
             height: 250px;
             padding-bottom: 50px;
             margin: auto;
         }
+        
 
         .success-text {
             padding-bottom: 20px;

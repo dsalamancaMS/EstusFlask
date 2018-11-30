@@ -15,8 +15,6 @@ cursor = cnxn.cursor()
 
 @app.route("/")
 def estus_flask():
-#    cnxn = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password)
-#    cursor = cnxn.cursor()
     cursor.execute("SELECT TOP 5 FirstName, LastName, EmailAddress, Phone FROM SalesLT.Customer")
     data = cursor.fetchall()
 
@@ -24,3 +22,7 @@ def estus_flask():
     return render_template("index.html", message=message, language="Python",data=data)
     
 
+@app.route("/work")
+def memory_load():
+    bytearray(512000000)     
+    return render_template("gophers_working.html")
