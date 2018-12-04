@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'CentOS'
+  vmImage: 'Ubuntu-16.04'
 
 variables:
   imageName: 'your-container-image-name:$(build.buildId)'
