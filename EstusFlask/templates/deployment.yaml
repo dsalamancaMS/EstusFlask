@@ -3,12 +3,12 @@ kind: Deployment
 metadata:
   name: {{ .Release.Name }}
   labels:
-    app: frontend
+{{- include "estusflask.labels" . | indent 4 }}
 spec:
-  replicas: 3
+  replicas: {{ .Values.replicas }}
   selector:
     matchLabels:
-      app: frontend
+      {{- include "estusflask.labels" . | indent 6 }}
   template:
     metadata:
       labels:
