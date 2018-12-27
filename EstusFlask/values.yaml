@@ -1,4 +1,8 @@
 
-replicas: test
+replicas: 1
 
-indentspaces: "  "
+image:
+  repository: dsalamanca.azurecr.io/python-sql
+  tag: v2
+  pullPolicy: IfNotPresent
+

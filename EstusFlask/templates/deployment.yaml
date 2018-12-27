@@ -12,11 +12,11 @@ spec:
   template:
     metadata:
       labels:
-        app: frontend
+        {{- include "estusflask.labels" . | indent 8 }}
     spec:
       containers:
       - name: pysql
-        image: dsalamanca.azurecr.io/python-sql:v2
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         resources:
           requests:
             memory: "100Mi"
