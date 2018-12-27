@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+  labels:
+    app: frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: pysql
+        image: dsalamanca.azurecr.io/python-sql:v2
+        resources:
+          requests:
+            memory: "100Mi"
+            cpu: "200m"
+          limits:
+            memory: "1024Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
+        env:
+          - name: DB_SERVER
+            valueFrom:
+              secretKeyRef:
+                name: db-secrets
+                key: dbserver
+          - name: DB_NAME
+            valueFrom:
+              secretKeyRef:
+                name: db-secrets
+                key: dbname
+          - name: DB_USER
+            valueFrom:
+              secretKeyRef:
+                name: db-secrets
+                key: dbuser
+          - name: DB_PASS
+            valueFrom:
+              secretKeyRef:
+                name: db-secrets
+                key: dbpass
+      imagePullSecrets:
+      - name: regcred
