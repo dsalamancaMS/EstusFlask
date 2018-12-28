@@ -6,3 +6,8 @@ image:
   tag: v2
   pullPolicy: IfNotPresent
 
+serviceport: 80
+
+minreplica: 3
+
+maxreplica: 15
