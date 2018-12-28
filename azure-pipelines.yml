@@ -13,5 +13,18 @@ variables:
   imageName: 'dsalamanca.azurecr.io/python-sql:$(build.buildId)'
 
 steps:
-- script: docker build -f Dockerfile -t $(imageName) .
-  displayName: 'docker build'
+- task: Docker@1
+  displayName: 'Build an image'
+  inputs:
+    imageName: '$(imageName)'
+- task: Docker@1
+  displayName: Login
+  inputs:
+    azureSubscriptionEndpoint: 'Inside Sales Sub'
+    azureContainerRegistry: dsalamanca.azurecr.io
+    command: login
+- task: Docker@1
+  displayName: 'Push an image'
+  inputs:
+    command: 'push'
+    imageName: '$(imageName)'
