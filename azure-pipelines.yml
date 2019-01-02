@@ -30,3 +30,15 @@ steps:
   inputs:
     command: 'push'
     imageName: '$(imageName)'
+
+- task: HelmDeploy@0
+  displayName: 'helm package'
+  inputs:
+    command: package
+
+    chartPath: './EstusFlask'
+
+    save: false
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifacts: drop'
