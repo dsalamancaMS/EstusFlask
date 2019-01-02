@@ -32,13 +32,22 @@ steps:
     imageName: '$(imageName)'
 
 - task: HelmDeploy@0
+  displayName: 'helm init'
+  inputs:
+    command: init
+    connectionType: 'Azure Resource Manager'
+    azureSubscriptionEndpoint: 'Inside Sales Sub (851e14db-af76-4238-93b5-368169c46a6e)'
+    azureResourceGroup: 'K8sAzureCNI'
+    KubernetesCluster: 'K8sAzureCNI'
+    arguments: '--client-only'
+
+- task: HelmDeploy@0
   displayName: 'helm package'
   inputs:
     command: package
-
     chartPath: './EstusFlask'
-
     save: false
+
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifacts: drop'
