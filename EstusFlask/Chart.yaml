@@ -3,3 +3,4 @@ appVersion: "1.0"
 description: Python Flask Application Consuming Azure SQL
 name: EstusFlask
 version: 0.1
+tillerVersion: ">=2.12.1"
