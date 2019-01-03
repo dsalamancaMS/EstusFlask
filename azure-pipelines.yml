@@ -23,7 +23,8 @@ variables:
 
 steps:
 - task: CmdLine@2
-  inputs: 'tar cvzf estustar_ci.tgz static/ templates/ application.py requirements.txt'
+  inputs: 
+    script: 'tar cvzf estustar_ci.tgz static/ templates/ application.py requirements.txt'
 
 - task: Docker@1
   displayName: 'Build an image'
