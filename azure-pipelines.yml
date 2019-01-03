@@ -4,7 +4,16 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
 trigger:
-- master
+  branches:
+    include:
+    - master
+  paths:
+    exclude:
+    - deploy-to-kube.sh
+    - .gitignore
+    - LICENSE
+    - README.md
+    
 
 pool:
   vmImage: 'Ubuntu-16.04'
@@ -13,6 +22,9 @@ variables:
   imageName: 'dsalamanca.azurecr.io/python-sql:$(build.buildId)'
 
 steps:
+- task: CmdLine@2
+  inputs: tar cvzf estustar_ci.tgz static/ templates/ application.py requirements.txt
+
 - task: Docker@1
   displayName: 'Build an image'
   inputs:

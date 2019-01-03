@@ -2,8 +2,8 @@ FROM ubuntu:latest
 
 COPY estustar.tgz /
 
-RUN tar xvzf estustar.tgz && \
-    rm -f estustar.tgz && \
+RUN tar xvzf estustar_ci.tgz && \
+    rm -f estustar_ci.tgz && \
     apt-get update && \
     apt-get install -y curl && \
     apt-get install -y python3 && \
