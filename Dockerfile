@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 
-COPY estustar.tgz /
+COPY estustar_ci.tgz /
 
 RUN tar xvzf estustar_ci.tgz && \
     rm -f estustar_ci.tgz && \
