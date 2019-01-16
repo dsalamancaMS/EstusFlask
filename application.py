@@ -18,7 +18,7 @@ def estus_flask():
     cursor.execute("SELECT TOP 5 FirstName, LastName, EmailAddress, Phone FROM SalesLT.Customer")
     data = cursor.fetchall()
 
-    message = "Hello from " + os.getenv("HOSTNAME")
+    message = "Hello " + os.getenv("HOSTNAME")
     return render_template("index.html", message=message, language="Python",data=data)
     
 
