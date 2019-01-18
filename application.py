@@ -8,7 +8,7 @@ app = Flask(__name__)
 def estus_flask():
 
     message = "Hello " + os.getenv("HOSTNAME")
-    return render_template("index.html", message=message, language="Python",data=data)
+    return render_template("index.html", message=message, language="Python")
     
 
 @app.route("/work")
