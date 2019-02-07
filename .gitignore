@@ -3,3 +3,4 @@ pysql.py
 env_vars.sh
 kube-definitions/regcred.yaml
 kube-definitions/db-secrets.yaml
+venv

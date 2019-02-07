@@ -17,12 +17,11 @@ cursor = cnxn.cursor()
 def estus_flask():
     cursor.execute("SELECT TOP 5 FirstName, LastName, EmailAddress, Phone FROM SalesLT.Customer")
     data = cursor.fetchall()
-
     message = "Hello " + os.getenv("HOSTNAME")
     return render_template("index.html", message=message, language="Python",data=data)
-    
 
 @app.route("/work")
 def memory_load():
-    bytearray(512000000)     
-    return render_template("gophers_working.html")
+    bytearray(512000000)
+    message = "Being Monolithic"
+    return render_template("gophers_working.html",message=message)
