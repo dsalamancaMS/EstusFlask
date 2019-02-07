@@ -2,6 +2,8 @@ from flask import Flask
 from flask import render_template
 import os
 import pyodbc
+import urllib.request
+import html
 
 app = Flask(__name__)
 
@@ -22,6 +24,7 @@ def estus_flask():
 
 @app.route("/work")
 def memory_load():
-    bytearray(512000000)
-    message = "Being Monolithic"
+    message= str(urllib.request.urlopen("http://localhost:8080").read())
+    message = message.replace("b","")
+    message = message.replace("'","")
     return render_template("gophers_working.html",message=message)
