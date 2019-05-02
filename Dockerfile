@@ -1,21 +1,9 @@
-FROM ubuntu:latest
+FROM dsalamanca.azurecr.io/python-sql:54
 
 COPY estustar_ci.tgz /
 
 RUN tar xvzf estustar_ci.tgz && \
-    rm -f estustar_ci.tgz && \
-    apt-get update && \
-    apt-get install -y curl \
-    python3 \
-    python3-pip \
-    unixodbc-dev && \
-    curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - && \
-    curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > /etc/apt/sources.list.d/mssql-release.list && \
-    apt-get update && \
-    apt-get install -y libssl-dev \
-    libssl1.0.0 && \
-    ACCEPT_EULA=Y apt-get install -y msodbcsql17 && \
-    pip3 install -r requirements.txt
+    rm -f estustar_ci.tgz && 
 
 ENV FLASK_APP=application.py
 ENV LC_ALL=C.UTF-8
