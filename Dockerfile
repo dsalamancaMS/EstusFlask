@@ -3,7 +3,7 @@ FROM dsalamanca.azurecr.io/python-sql:54
 COPY estustar_ci.tgz /
 
 RUN tar xvzf estustar_ci.tgz && \
-    rm -f estustar_ci.tgz && 
+    rm -f estustar_ci.tgz 
 
 ENV FLASK_APP=application.py
 ENV LC_ALL=C.UTF-8
