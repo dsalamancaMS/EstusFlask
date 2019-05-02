@@ -27,16 +27,16 @@ steps:
     script: 'tar cvzf estustar_ci.tgz static/ templates/ application.py requirements.txt'
 
 - task: Docker@1
-  displayName: 'Build an image'
-  inputs:
-    imageName: '$(imageName)'
-
-- task: Docker@1
   displayName: Login
   inputs:
     azureSubscriptionEndpoint: 'Inside Sales Sub (851e14db-af76-4238-93b5-368169c46a6e)'
     azureContainerRegistry: dsalamanca.azurecr.io
     command: login
+
+- task: Docker@1
+  displayName: 'Build an image'
+  inputs:
+    imageName: '$(imageName)'
 
 - task: Docker@1
   displayName: 'Push an image'
